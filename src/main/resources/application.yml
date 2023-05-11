@@ -2,6 +2,6 @@ server:
   port: 8861
 spring:
   application:
-    name: cj-life-server-config
+    name: cj-geochat-server-config
   profiles:
     active: ${docker.geochat.spring.profiles.active:dev}

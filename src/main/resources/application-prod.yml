@@ -10,7 +10,7 @@ spring:
       server:
         git:
           #github地址
-          #uri: https://github.com/carocean/cj-life-config-resource.git
+#          uri: https://github.com/carocean/cj-geochat-config-resources.git
           uri: ${docker.spring.cloud.config.server.git.uri:https://gitee.com/carocean/cj-geochat-config-resource.git}
           skipSslValidation: true
           # github账号名
