@@ -3,30 +3,34 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.14</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>cj.geochat</groupId>
+        <artifactId>cj-geochat-parent</artifactId>
+        <!--不要指定为snapshots版。只指定正式版，会依据父pom的环境而变化-->
+        <version>1.5.0</version>
+        <!--                <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
     <groupId>cj.geochat</groupId>
     <artifactId>cj-geochat-server-config</artifactId>
-    <version>${project.version}</version>
+    <version>2.0.0</version>
     <name>cj-geochat-server-config</name>
     <description>cj-geochat-server-config</description>
     <properties>
-        <java.version>1.8</java.version>
-        <project.version>1.0.0-SNAPSHOT</project.version>
-        <spring-cloud.version>2021.0.2</spring-cloud.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <profiles>
         <profile>
             <id>release</id>
             <properties>
-                <project.version>1.0.0</project.version>
             </properties>
         </profile>
     </profiles>
     <dependencies>
+        <dependency>
+            <groupId>cj.geochat</groupId>
+            <artifactId>cj-geochat-ability-banner</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
@@ -36,10 +40,10 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>cj.geochat</groupId>
+            <artifactId>cj-geochat-ability-web</artifactId>
+            <type>pom</type>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -57,17 +61,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -120,7 +114,7 @@
                     <!--                        <imageTag>${project.version}</imageTag>-->
                     <!--                    </imageTags>-->
                     <!--指定基础镜像jdk1.8-->
-                    <baseImage>java:8</baseImage>
+                    <baseImage>java:17</baseImage>
                     <!--
                     镜像制作人本人信息-->
                     <maintainer>carocean.jofers@outlook.com</maintainer>
@@ -141,7 +135,7 @@
                         <docker.geochat.EUREKA_SERVER_URL>http://localhost:8761/eureka/</docker.geochat.EUREKA_SERVER_URL>
                         <docker.spring.cloud.config.server.git.uri>https://gitee.com/carocean/cj-geochat-config-resource.git</docker.spring.cloud.config.server.git.uri>
                         <docker.spring.cloud.config.server.git.username>carocean</docker.spring.cloud.config.server.git.username>
-                        <docker.spring.cloud.config.server.git.password>jofers0227</docker.spring.cloud.config.server.git.password>
+                        <docker.spring.cloud.config.server.git.password>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</docker.spring.cloud.config.server.git.password>
                         <docker.spring.cloud.config.server.git.search-paths>config</docker.spring.cloud.config.server.git.search-paths>
                         <docker.spring.cloud.config.server.git.default-label>master</docker.spring.cloud.config.server.git.default-label>
                         <docker.spring.cloud.config.server.git.timeout>30</docker.spring.cloud.config.server.git.timeout>

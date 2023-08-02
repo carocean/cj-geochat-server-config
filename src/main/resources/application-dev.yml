@@ -18,7 +18,7 @@ spring:
           username: ${docker.spring.cloud.config.server.git.username:carocean}
           # github账号密码
           #password: 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
-          password: ${docker.spring.cloud.config.server.git.password:jofers0227}
+          password: ${docker.spring.cloud.config.server.git.password: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}
           search-paths: ${docker.spring.cloud.config.server.git.search-paths:config}
           timeout: ${docker.spring.cloud.config.server.git.timeout:30}
           default-label: ${docker.spring.cloud.config.server.git.default-label:master}
